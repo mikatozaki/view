@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>♡</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="screen active" id="lock-screen">
+    <div class="lock-area">
+      <div class="padlock-wrap">
+        <img src="lock.png" alt="Padlock" class="padlock-img">
+
+        <div class="code-panel">
+          <div class="digit-wrap">
+            <button class="arrow up" data-index="0">▲</button>
+            <input class="digit" id="d0" inputmode="numeric" maxlength="1">
+            <button class="arrow down" data-index="0">▼</button>
+          </div>
+          <div class="digit-wrap">
+            <button class="arrow up" data-index="1">▲</button>
+            <input class="digit" id="d1" inputmode="numeric" maxlength="1">
+            <button class="arrow down" data-index="1">▼</button>
+          </div>
+          <div class="digit-wrap">
+            <button class="arrow up" data-index="2">▲</button>
+            <input class="digit" id="d2" inputmode="numeric" maxlength="1">
+            <button class="arrow down" data-index="2">▼</button>
+          </div>
+          <div class="digit-wrap">
+            <button class="arrow up" data-index="3">▲</button>
+            <input class="digit" id="d3" inputmode="numeric" maxlength="1">
+            <button class="arrow down" data-index="3">▼</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="unlock-row">
+        <button class="btn" id="unlockBtn">Unlock</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const correctPin = "0917";
+    const digits = Array.from(document.querySelectorAll('.digit'));
+
+    function clampDigit(n){ return ((n % 10) + 10) % 10; }
+
+    document.querySelectorAll('.arrow.up').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const i = +btn.dataset.index;
+        const inp = digits[i];
+        const val = parseInt(inp.value||'0',10);
+        inp.value = clampDigit(val+1);
+      });
+    });
+
+    document.querySelectorAll('.arrow.down').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        const i = +btn.dataset.index;
+        const inp = digits[i];
+        const val = parseInt(inp.value||'0',10);
+        inp.value = clampDigit(val-1);
+      });
+    });
+
+    function getCode(){ return digits.map(d=>d.value||'0').join(''); }
+
+    document.getElementById('unlockBtn').addEventListener('click',()=>{
+      if(getCode()===correctPin){
+        window.location.href="dashboard.html"; 
+      } else {
+        const wrap=document.querySelector('.padlock-wrap');
+        wrap.classList.add('shake');
+        setTimeout(()=>wrap.classList.remove('shake'),400);
+      }
+    });
+  </script>
+</body>
+</html>

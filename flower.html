@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flowers</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden; 
+      background: #e8f5e9; 
+      display: flex;
+      flex-direction: column; 
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+    img {
+      max-width: 90%;
+      max-height: 90vh;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+    .return-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff6b88, #ff4d6d);
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      box-shadow: 0 6px 15px rgba(255, 77, 109, 0.3);
+      transition: transform 0.2s, background 0.3s;
+    }
+    .return-btn:hover {
+      background: linear-gradient(135deg, #ff4d6d, #ff6b88);
+      transform: scale(1.05);
+    }
+    .return-btn:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body>
+  <img src="flow.png" alt="Flowers">
+
+  <a href="dashboard.html" class="return-btn">⬅ Return</a>
+</body>
+</html>
