@@ -23,7 +23,7 @@
       border-radius: 12px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.2);
     }
-    .return-btn {
+    .btn {
       display: inline-block;
       background: linear-gradient(135deg, #ff6b88, #ff4d6d);
       color: #fff;
@@ -34,12 +34,13 @@
       border-radius: 30px;
       box-shadow: 0 6px 15px rgba(255, 77, 109, 0.3);
       transition: transform 0.2s, background 0.3s;
+      text-align: center;
     }
-    .return-btn:hover {
+    .btn:hover {
       background: linear-gradient(135deg, #ff4d6d, #ff6b88);
       transform: scale(1.05);
     }
-    .return-btn:active {
+    .btn:active {
       transform: scale(0.98);
     }
   </style>
@@ -47,6 +48,8 @@
 <body>
   <img src="lett.png" alt="Letter">
 
-  <a href="dashboard.html" class="return-btn">⬅ Return</a>
+  <a href="dashboard.html" class="btn">⬅ Return</a>
+
+  <a href="ll.pdf" download="ll.pdf" class="btn">Click for More</a>
 </body>
 </html>
